@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
-import Footer from "../../footer/footer";
-import Body from "../body";
+import Body from "./body/body";
+import Footer from "./footer/footer";
 import Header from "./header/header";
 
 function Layout(props: any) {

@@ -96,6 +96,7 @@ const Header = (props: Props) => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -108,9 +109,17 @@ const Header = (props: Props) => {
     setAnchorElUser(null);
   };
 
-  const [scrollSearchBar, setScrollSearchBar] = React.useState<boolean>(false);
+  const [searchbar, setSearchbar] = React.useState<boolean>(false);
 
-  React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    window.addEventListener("scroll", (e) => {
+      if (window.scrollY > 250) {
+        setSearchbar(true);
+      } else {
+        setSearchbar(false);
+      }
+    });
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -126,23 +135,25 @@ const Header = (props: Props) => {
               >
                 SalesTrip
               </Typography>
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Select a City"
-                  inputProps={{
-                    "aria-label": "search",
-                    sx: {
-                      "&::placeholder": {
-                        color: "#000",
-                        background: "#F7F7F7",
+              {searchbar && (
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Select a City"
+                    inputProps={{
+                      "aria-label": "search",
+                      sx: {
+                        "&::placeholder": {
+                          color: "#000",
+                          background: "#F7F7F7",
+                        },
                       },
-                    },
-                  }}
-                />
-              </Search>
+                    }}
+                  />
+                </Search>
+              )}
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
