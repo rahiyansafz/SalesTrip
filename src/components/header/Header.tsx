@@ -131,7 +131,11 @@ const Header = (props: Props) => {
                 variant="h6"
                 noWrap
                 component="div"
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontWeight: 700,
+                }}
               >
                 SalesTrip
               </Typography>
@@ -199,7 +203,11 @@ const Header = (props: Props) => {
                 variant="h6"
                 noWrap
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "flex", md: "none" },
+                  fontWeight: 700,
+                }}
               >
                 SalesTrip
               </Typography>
